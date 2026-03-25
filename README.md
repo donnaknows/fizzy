@@ -109,3 +109,16 @@ $FZ boards:list          # board IDs
 $FZ columns:list --board-id ID   # column IDs
 $FZ users:list           # user IDs
 ```
+
+## Releases
+
+This repo uses **Release Please** for semver releases.
+
+Use conventional commits:
+
+- `fix:` → patch release
+- `feat:` → minor release
+- `feat!:` or `BREAKING CHANGE:` → major release
+- `docs:`, `chore:`, `test:` → usually no release by themselves
+
+Current baseline tag: `v1.0.0`.

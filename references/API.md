@@ -49,11 +49,15 @@ GET    /:account_slug/cards/:card_number              # Get card
 POST   /:account_slug/boards/:board_id/cards          # Create card
 PUT    /:account_slug/cards/:card_number              # Update card
 DELETE /:account_slug/cards/:card_number              # Delete card
+
+Note: current tested API usage did **not** support changing a card's board/project via `PUT /:account_slug/cards/:card_number` using either JSON `card.board_id` or form-style `card[board_id]`; both returned `400 Bad Request`.
 POST   /:account_slug/cards/:card_number/closure      # Close card
 DELETE /:account_slug/cards/:card_number/closure      # Reopen card
 POST   /:account_slug/cards/:card_number/not_now      # Move to "Not Now"
 POST   /:account_slug/cards/:card_number/triage       # Move to column (requires column_id)
 DELETE /:account_slug/cards/:card_number/triage       # Send back to triage
+
+These triage/column endpoints are for placement **within a board**. They are not documented as cross-board/project move endpoints.
 ```
 
 ### Card Actions

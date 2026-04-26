@@ -110,6 +110,8 @@ $FZ card:update --card-number 7 --title "Updated title"
 $FZ card:update --card-number 7 --description "<p>New description</p>"
 ```
 
+**Important:** This does **not** move a card between boards/projects. Cross-board moves were tested with both JSON `card.board_id` and form-style `card[board_id]` and returned `400 Bad Request`.
+
 #### `card:delete --card-number NUM`
 Permanently delete a card. **Irreversible.**
 ```bash
@@ -248,6 +250,17 @@ $FZ upload --file /tmp/screenshot.png
 $FZ boards:list
 # Copy the "id" field of the board you want
 ```
+
+### Move a card to another board/project
+
+There is **no confirmed API-supported in-place board/project move** in the current Fizzy skill/API path.
+
+Use this workaround:
+1. `card:get` the source card
+2. `card:create` a new card on the target board with the copied title/description
+3. Reapply tags/assignments/comments/steps if needed
+4. Verify the new card
+5. `card:delete` the original card
 
 ### Find a column ID
 ```bash
